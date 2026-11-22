@@ -88,9 +88,15 @@ function draw(days, theme) {
     shapes + label + `</svg>`;
 }
 
-const days = process.env.CITY_DATA
-  ? JSON.parse(readFileSync(process.env.CITY_DATA, "utf8"))
-  : (await fromGraphQL().catch(() => null)) || (await fromProfilePage());
+// Use whichever source sees more contributions (the public profile page counts
+// private work when "Private contributions" is on in profile settings).
+const sum = (d) => (d || []).reduce((a, x) => a + x[1], 0);
+let days;
+if (process.env.CITY_DATA) days = JSON.parse(readFileSync(process.env.CITY_DATA, "utf8"));
+else {
+  const [a, b] = await Promise.all([fromGraphQL().catch(() => null), fromProfilePage().catch(() => null)]);
+  days = sum(b) >= sum(a) ? b || a : a;
+}
 if (!days?.length) throw new Error("no contribution data");
 mkdirSync(OUT, { recursive: true });
 for (const theme of ["light", "dark"]) writeFileSync(`${OUT}/city-${theme}.svg`, draw(days, theme));
