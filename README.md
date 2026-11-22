@@ -9,4 +9,4 @@ Mobile & ERP developer from Iraq 🇮🇶 — building e-commerce apps and busin
 
 **Tech:** Flutter · Dart · Python · Odoo · JavaScript · REST APIs
 
-🌐 [genx-iq.com](https://genx-iq.com/)
+🌐 [suliman-ahmed.github.io](https://suliman-ahmed.github.io)
