@@ -9,4 +9,6 @@ Mobile & ERP developer from Iraq, building e-commerce apps and business integrat
 
 **Tech:** Flutter · Dart · Python · Odoo · JavaScript · REST APIs
 
+<picture><source media="(prefers-color-scheme: dark)" srcset="city/city-dark.svg"><img alt="My GitHub contributions over the last year, drawn as a city" src="city/city-light.svg"></picture>
+
 [suliman-ahmed.github.io](https://suliman-ahmed.github.io)
